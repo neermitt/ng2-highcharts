@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top navbar-dark bg-inverse" role="navigation">
+  <button type="button" class="navbar-toggler hidden-md-up">
+    &#9776;
+  </button>
+  <a class="navbar-brand cisco-logo" [routerLink]="['/Line']">Cisco</a>
+  <ul class="nav navbar-nav hidden-md-down">
+    <li class="nav-item"><a [routerLink]="['/Line']">ng2-highcharts Demo</a></li>
+    <li class="nav-item pull-xs-right"><a>Quick Tour</a></li>
+  </ul>
+</header>
+
+<section class="navbar navbar-full navbar-light selection">
+  <div class="nav navbar-nav">
+    <cs-search-header class="nav-item"></cs-search-header>
+  </div>
+
+</section>
+<main id="content" role="region">
+  <router-outlet></router-outlet>
+</main>

@@ -5,6 +5,7 @@ import {runSequence, task} from './tools/utils';
 // Clean (override).
 gulp.task('clean', task('clean', 'all'));
 gulp.task('clean.dist', task('clean', 'dist'));
+gulp.task('clean.demo', task('clean', 'demo'));
 gulp.task('clean.test', task('clean', 'test'));
 gulp.task('clean.tmp', task('clean', 'tmp'));
 
@@ -19,13 +20,23 @@ gulp.task('postinstall', done =>
 
 // --------------
 // Build dev.
-gulp.task('build.dev', done =>
+gulp.task('build.src', done =>
   runSequence('clean.dist',
     'tslint',
-    'build.sass.dev',
-    'build.assets.dev',
     'build.js.dev',
-    'build.index',
+    done));
+
+// --------------
+// Build dev.
+gulp.task('build.dev', done =>
+  runSequence('clean.dist',
+    'clean.demo',
+    'tslint',
+    'build.js.dev',
+    'build.demo.sass.dev',
+    'build.demo.assets.dev',
+    'build.demo.js.dev',
+    'build.demo.index',
     done));
 
 // --------------

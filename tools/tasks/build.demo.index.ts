@@ -1,16 +1,16 @@
 import {join, sep} from 'path';
-import {APP_SRC, APP_DEST, DEPENDENCIES, ENV} from '../config';
+import {DEMO_SRC, DEMO_DEST, DEPENDENCIES, ENV} from '../config';
 import {transformPath, templateLocals} from '../utils';
 
 export = function buildIndexDev(gulp, plugins) {
   return function () {
-    return gulp.src(join(APP_SRC, 'index.html'))
+    return gulp.src(join(DEMO_SRC, 'index.html'))
       // NOTE: There might be a way to pipe in loop.
       .pipe(inject('shims'))
       .pipe(inject('libs'))
       .pipe(inject())
       .pipe(plugins.template(templateLocals()))
-      .pipe(gulp.dest(APP_DEST));
+      .pipe(gulp.dest(DEMO_DEST));
   };
 
 

@@ -1,8 +1,8 @@
 import {join} from 'path';
-import {APP_SRC} from '../config';
+import {LIB_SRC, DEMO_SRC} from '../config';
 
 export = function watchDev(gulp, plugins) {
   return function () {
-    plugins.watch(join(APP_SRC, '**/*'), () => gulp.start('build.dev'));
+    plugins.watch([join(LIB_SRC, '**/*'), join(DEMO_SRC, '**/*')], () => gulp.start('build.dev'));
   };
 };

@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as connectLivereload from 'connect-livereload';
-import {ENABLE_HOT_LOADING, LIVE_RELOAD_PORT, HOT_LOADER_PORT, APP_SRC, APP_BASE, PROJECT_ROOT} from '../config';
+import {ENABLE_HOT_LOADING, LIVE_RELOAD_PORT, HOT_LOADER_PORT, LIB_SRC, DEMO_SRC, LIB_BASE, PROJECT_ROOT} from '../config';
 import * as ng2HotLoader from 'angular2-hot-loader';
 import * as tinylrFn from 'tiny-lr';
 import {sep} from 'path';
@@ -11,7 +11,8 @@ let listen = () => {
     return ng2HotLoader.listen({
       port: HOT_LOADER_PORT,
       processPath: file => {
-        return file.replace(`${PROJECT_ROOT}${sep}${APP_SRC}`, '/dist/dev/');
+        file.replace(`${PROJECT_ROOT}${sep}${LIB_SRC}`, '/dist/dev/');
+        return file.replace(`${PROJECT_ROOT}${sep}${DEMO_SRC}`, '/dist/demo/dev/');
       }
     });
   } else {
@@ -34,7 +35,7 @@ let changed = files => {
 
 let tinylrMiddleware = connectLivereload({port: LIVE_RELOAD_PORT});
 let middleware = [
-  APP_BASE,
+  LIB_BASE,
   (req, res, next) => {
     if (ENABLE_HOT_LOADING) {
       next();

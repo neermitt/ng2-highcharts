@@ -1,12 +1,12 @@
 import {join} from 'path';
-import {APP_SRC, APP_TITLE, DOCS_DEST} from '../config';
+import {DEMO_SRC, APP_TITLE, DOCS_DEST} from '../config';
 
 export = function buildDocs(gulp, plugins, option) {
   return function () {
 
     let src = [
-      join(APP_SRC, '**/*.ts'),
-      '!' + join(APP_SRC, '**/*_spec.ts')
+      join(DEMO_SRC, '**/*.ts'),
+      '!' + join(DEMO_SRC, '**/*_spec.ts')
     ];
 
     return gulp.src(src)

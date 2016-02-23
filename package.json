@@ -57,7 +57,6 @@
     "connect-livereload": "^0.5.4",
     "del": "^1.1.1",
     "express": "^4.13.3",
-    "express-http-proxy": "^0.6.0",
     "extend": "^3.0.0",
     "gulp": "^3.9.0",
     "gulp-angular2-embed-sass": "0.0.3",

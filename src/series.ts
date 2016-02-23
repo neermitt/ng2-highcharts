@@ -10,15 +10,18 @@ import {OnDestroy} from "angular2/core";
 
 export abstract class AbstractHighchartSeries implements AfterViewInit, OnDestroy{
   private _chart: ChartCmp;
+  private _type : string;
   @Input() name:string;
   @Input() data:any[];
 
-  constructor(@Host() chart: ChartCmp) {
+  constructor(type: string, chart: ChartCmp) {
+    this._type = type;
     this._chart = chart;
   }
 
   ngAfterViewInit():void {
     this._chart.addSeries({
+      type: this._type,
       name: this.name,
       data: this.data
     })
@@ -27,13 +30,20 @@ export abstract class AbstractHighchartSeries implements AfterViewInit, OnDestro
   ngOnDestroy():void {
     this._chart.removeSeries(this.name);
   }
-
 }
 
 @Directive({selector: 'line'})
 export class LineSeries extends AbstractHighchartSeries {
 
   constructor(@Host() chart: ChartCmp) {
-    super(chart);
+    super('line', chart);
+  }
+}
+
+@Directive({selector: 'ng2-hc-area'})
+export class AreaSeries extends AbstractHighchartSeries {
+
+  constructor(@Host() chart: ChartCmp) {
+    super('area', chart);
   }
 }

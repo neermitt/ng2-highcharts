@@ -4,13 +4,10 @@
     "target": "es5",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": false,
-    "moduleResolution": "node",
-    "declaration": true,
-    "outDir": "./dist"
+    "sourceMap": true,
+    "moduleResolution": "node"
   },
   "files": [
-    "src/ng2-highcharts.ts",
-    "typings/main.d.ts"
+
   ]
 }

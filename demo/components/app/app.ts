@@ -10,16 +10,15 @@ import {
 
 import {LineChartDemoCmp} from '../line/line-demo';
 
-import {HIGHCHART_DIRECTIVES} from 'ng2-highcharts/highcharts';
-
+var Highcharts = require('highcharts');
 
 @Component({
     selector: 'app',
     viewProviders: [],
-    templateUrl: './components/app/app.html',
-    styleUrls: ['./components/app/app.scss'],
+    templateUrl: './demo/components/app/app.html',
+    styleUrls: ['./demo/components/app/app.css'],
     encapsulation: ViewEncapsulation.None,
-    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, HIGHCHART_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES]
 })
 @RouteConfig([
     {path: '/', component: LineChartDemoCmp, as: 'Line'}

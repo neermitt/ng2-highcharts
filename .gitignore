@@ -29,5 +29,7 @@ node_modules
 
 tools/typings/tsd
 
-
+/typings/
 dist/
+
+demo/build/

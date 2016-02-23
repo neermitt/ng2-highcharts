@@ -1,5 +1,7 @@
-///<reference path="../../tools/typings/tsd/highcharts/highcharts.d.ts"/>
+///<reference path="../node_modules/retyped-highcharts-tsd-ambient/highcharts.d.ts"/>
 import {Directive, ElementRef, Input, OnChanges, SimpleChange} from 'angular2/core';
+
+var Highcharts = require('highcharts');
 
 @Directive({
   selector: 'ng2-highchart'
